@@ -1,1 +1,18 @@
+.box {
+  border: 1px solid black;
+  width: 500px;
+}
 
+.image {
+  width: 400px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
