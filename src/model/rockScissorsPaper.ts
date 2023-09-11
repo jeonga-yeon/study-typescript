@@ -1,7 +1,5 @@
 export type RockScissorsPaper = {
-  rock: Choice;
-  scissors: Choice;
-  paper: Choice;
+  [key: string]: Choice;
 };
 
 export type Choice = {
