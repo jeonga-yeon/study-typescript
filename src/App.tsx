@@ -53,7 +53,19 @@ const App: React.FC = () => {
     <div>
       <div className="main">
         <Box title="You" item={userSelect} result={result} />
-        <Box title="Computer" item={computerSelect} result={result} />
+        <Box
+          title="Computer"
+          item={computerSelect}
+          result={
+            result === "Tie"
+              ? "Tie"
+              : result === "Win"
+              ? "Lose"
+              : result === "Lose"
+              ? "Win"
+              : ""
+          }
+        />
       </div>
       <div className="buttons">
         <button onClick={() => play("scissors")}>가위</button>

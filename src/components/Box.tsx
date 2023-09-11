@@ -10,9 +10,19 @@ interface BoxProps {
 
 const Box: React.FC<BoxProps> = ({ title, item, result }) => {
   return (
-    <div className="box">
+    <div
+      className={`box ${
+        result === "Tie"
+          ? "black"
+          : result === "Win"
+          ? "green"
+          : result === "Lose"
+          ? "red"
+          : "nothing"
+      }`}
+    >
       <h1>{title}</h1>
-      <img src={item?.img} alt="가위" className="image" />
+      <img src={item?.img} className="image" />
       <h2>{result}</h2>
     </div>
   );
