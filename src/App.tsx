@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import WeatherBox from "./components/WeatherBox";
 import WeatherButton from "./components/WeatherButton";
 
 const App: React.FC = () => {
+  const [weather, setWeather] = useState();
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
