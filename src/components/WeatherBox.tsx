@@ -1,11 +1,20 @@
 import React from "react";
+import { WeatherData } from "../model/weather";
 
-const WeatherBox = () => {
+interface WeatherBoxProps {
+  weather?: WeatherData;
+}
+
+const WeatherBox: React.FC<WeatherBoxProps> = ({ weather }) => {
+  console.log(weather);
   return (
     <div className="weather-box">
-      <div>서울</div>
-      <h2>30도 / 110화씨</h2>
-      <h3>맑은 하늘</h3>
+      <div>{weather?.name}</div>
+      <h2>
+        {weather?.main.temp}°C /{" "}
+        {weather && ((weather.main.temp * 9) / 5 + 32).toFixed(2)}℉
+      </h2>
+      <h3>{weather?.weather[0].description}</h3>
     </div>
   );
 };
