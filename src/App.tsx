@@ -1,29 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
-import Homepage from "./page/Homepage";
-import Aboutpage from "./page/Aboutpage";
-import ProductPage from "./page/ProductPage";
-import ProductDetailPage from "./page/ProductDetailPage";
-import LoginPage from "./page/LoginPage";
-import UserPage from "./page/UserPage";
+import ProductAll from "./page/ProductAll";
+import Login from "./page/Login";
+import ProductDetail from "./page/ProductDetail";
+import Navbar from "./components/Navbar";
 
 const App: React.FC = () => {
-  const [authenticate, setAuthenticate] = useState(false);
-
-  const PrivateRoute = () => {
-    return authenticate ? <UserPage /> : <Navigate to="/login" />;
-  };
-
   return (
     <div>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<Aboutpage />} />
-        <Route path="/products" element={<ProductPage />} />
-        <Route path="/products/:id" element={<ProductDetailPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/user" element={<PrivateRoute />} />
+        <Route path="/" element={<ProductAll />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
     </div>
   );
